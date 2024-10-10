@@ -1,4 +1,7 @@
 {
-    "userspace_version": "1.0",
-    "build_targets": []
+    "userspace_version": "1.1",
+    "build_targets": [
+        ["keychron/c3_pro/ansi/rgb", "pahindman"],
+        ["keychron/c3_pro/ansi/red", "pahindman"]
+    ]
 }
