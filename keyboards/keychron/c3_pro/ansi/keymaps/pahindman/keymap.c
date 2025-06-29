@@ -58,8 +58,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LCTL,         KC_LWIN,  KC_LALT,                                KC_SPC,                                 KC_RALT,  MO(1),    KC_RWIN,  KC_RCTL,  KC_LEFT,  KC_DOWN,  KC_RGHT),
 
     [1] = LAYOUT_tkl_ansi(
-        QK_BOOT,                   KC_BRID,  KC_BRIU,  _______,  _______,  C3P_VAD,  C3P_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  C3P_TOG,
-        EE_CLR,          _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  DT_PRNT,  DT_UP,
+        QK_BOOT,                   KC_BRID,  KC_BRIU,  _______,  _______,  C3P_VAD,  C3P_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  DT_PRNT,  _______,  C3P_TOG,
+        EE_CLR,          _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  DT_UP,
         BL_TOGG,         C3P_MOD,  C3P_VAI,  C3P_HUI,  C3P_SAI,  C3P_SPI,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  DT_DOWN,
         _______,         C3P_RMOD, C3P_VAD,  C3P_HUD,  C3P_SAD,  C3P_SPD,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  _______,  _______,  _______,
         _______,                   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,                      _______,
