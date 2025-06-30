@@ -82,3 +82,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,            _______,  _______,  _______,  _______,  _______,  NK_TOGG,  _______,  _______,  _______,  _______,  _______,                      _______,
         _______,  _______,  _______,                                _______,                                DF(0),    _______,  KC_APP,   _______,  _______,  _______,  _______),
 };
+
+/* Use Mac and Win LEDs as a bitfield that indicates the current layer number.  Obviously
+ * with only 2 bits we can only represent 4 layers, but that's all we have, so it's fine. */
+void keyboard_post_init_user(void) {
+    gpio_set_pin_output_push_pull(LED_MAC_OS_PIN);
+    gpio_set_pin_output_push_pull(LED_WIN_OS_PIN);
+    gpio_write_pin(LED_MAC_OS_PIN, !LED_OS_PIN_ON_STATE);
+    gpio_write_pin(LED_WIN_OS_PIN, !LED_OS_PIN_ON_STATE);
+}
+
+void housekeeping_task_user(void) {
+    if (default_layer_state == (1U << 0)) {
+        gpio_write_pin(LED_MAC_OS_PIN, !LED_OS_PIN_ON_STATE);
+    }
+    if (default_layer_state == (1U << 2)) {
+        gpio_write_pin(LED_MAC_OS_PIN, LED_OS_PIN_ON_STATE);
+    }
+
+    if (layer_state == (1U << 1) || layer_state == (1U << 3)) {
+        gpio_write_pin(LED_WIN_OS_PIN, LED_OS_PIN_ON_STATE);
+    }
+    else {
+        gpio_write_pin(LED_WIN_OS_PIN, !LED_OS_PIN_ON_STATE);
+    }
+}
+
+void suspend_power_down_user(void) {
+    gpio_write_pin(LED_WIN_OS_PIN, !LED_OS_PIN_ON_STATE);
+    gpio_write_pin(LED_MAC_OS_PIN, !LED_OS_PIN_ON_STATE);
+}
